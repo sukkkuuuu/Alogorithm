@@ -40,44 +40,44 @@ func(0)
 print(cnt)
 
 
-# 아래의 방법은 시간 초과 발생함
-# import sys
-# input = sys.stdin.readline
+# 아래의 방법은 python3로 하면 시간 초과 발생함, pypy3로 해야지 통과됨
+import sys
+input = sys.stdin.readline
 
-# # 상하좌우, 대각선에 퀸 위치해 있는지 확인
-# # nqueen에서 상하를 판별하지 않는데 그 이유는 한 줄에 하나의 퀸이 반드시 들어가야하기 때문에 신경쓰지 않는다, 트리를 그리면 row 단위로 노드를 뻗어나가서 신경쓰지 않는다고 보면 된다
-# def check(n):
+# 상하좌우, 대각선에 퀸 위치해 있는지 확인
+# nqueen에서 상하를 판별하지 않는데 그 이유는 한 줄에 하나의 퀸이 반드시 들어가야하기 때문에 신경쓰지 않는다, 트리를 그리면 row 단위로 노드를 뻗어나가서 신경쓰지 않는다고 보면 된다
+def check(n):
 
-#     for i in range(n):
-#         # 좌우, 대각선에 퀸 있을 경우
-#         # 좌우 검사(board[n] == board[i]) 현재 퀸의 열(column) 위치와 기존에 적재된 퀸 중 특정 퀸의 열(column)위치가 같은지 확인 
-#         # 대각선 검사(n-i == abs(board[n] - board[i]) => (현재 퀸의 raw - 기존 퀸의 raw)가 |현재 퀸의 column - 기존 퀸의 column|과 같은지 확인, 그림을 그려보면 이부분이 대각선이 된다
-#         if (board[n] == board[i]) or (n-i == abs(board[n] - board[i])):
-#             return False
-#     return True 
+    for i in range(n):
+        # 좌우, 대각선에 퀸 있을 경우
+        # 좌우 검사(board[n] == board[i]) 현재 퀸의 열(column) 위치와 기존에 적재된 퀸 중 특정 퀸의 열(column)위치가 같은지 확인 
+        # 대각선 검사(n-i == abs(board[n] - board[i]) => (현재 퀸의 raw - 기존 퀸의 raw)가 |현재 퀸의 column - 기존 퀸의 column|과 같은지 확인, 그림을 그려보면 이부분이 대각선이 된다
+        if (board[n] == board[i]) or (n-i == abs(board[n] - board[i])):
+            return False
+    return True 
 
-# def nqueen(depth):
-#     global count
+def nqueen(depth):
+    global count
     
-#     # depth가 num일 때 모든 퀸을 다 놓은 것이라 판단
-#     # depth는 행(row, 가로)를 의미한다
-#     if depth == num:
-#         count+=1
+    # depth가 num일 때 모든 퀸을 다 놓은 것이라 판단
+    # depth는 행(row, 가로)를 의미한다
+    if depth == num:
+        count+=1
 
-#     # depth별 반복문
-#     for i in range(num):
+    # depth별 반복문
+    for i in range(num):
 
-#         # (depth,i) 위치에 퀸 올리기. depth는 row, i는 column임
-#         board[depth] = i
+        # (depth,i) 위치에 퀸 올리기. depth는 row, i는 column임
+        board[depth] = i
 
-#         # 상하좌우, 대각선에 퀸이 위치하는지 확인해줘야함
-#         if check(depth):
-#             nqueen(depth+1)
+        # 상하좌우, 대각선에 퀸이 위치하는지 확인해줘야함
+        if check(depth):
+            nqueen(depth+1)
 
-# num = int(input())
-# # index는 row(세로줄)를 의미하고, value는 column(가로줄)를 의미한다
-# board = [0] * num
-# count = 0 
-# nqueen(0)
+num = int(input())
+# index는 row(세로줄)를 의미하고, value는 column(가로줄)를 의미한다
+board = [0] * (num+1)
+count = 0 
+nqueen(0)
 
-# print(count)
+print(count)
