@@ -1,4 +1,4 @@
-# https://hyonlog.tistory.com/38 참고 사이트
+# https://hyonlog.tistory.com/38 참고사이트
 import sys
 input = sys.stdin.readline
 
