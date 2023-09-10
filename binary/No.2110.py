@@ -19,7 +19,7 @@ while( L <= R):
     # 작으면 공유기 설치할 필요 없음, 그리고 설치한 지점부터 다시 공유기 안잡히는 곳까지 공유기 설치하러 갈거임
     for i in range(1,N):
         if homes[i] - current >= mid:
-            diff = min(diff, homes[i] - current) # 인접한 공유기 사이의 거리, 이거의 최대값을 출력해야한다 
+            diff = min(diff, homes[i] - current) # 가장 인접한 공유기 사이의 거리, 이거는 짧아야함 그래서 min
             count+=1
             current = homes[i]
     
