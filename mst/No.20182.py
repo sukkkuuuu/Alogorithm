@@ -1,4 +1,4 @@
-# 골목 대장 호석 - 효율성 1
+# 골목 대장 호석 - 효율성 1, 고쳐야함 못품
 import sys, heapq
 input = sys.stdin.readline
 
