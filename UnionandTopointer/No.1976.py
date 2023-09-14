@@ -31,6 +31,7 @@ for i in range(n):
 
 answer = "YES"
 for i in range(1,m):
+    # parent의 배열 index가 0부터 시작해서 -1 해줘야함
     if parent[travel[i] - 1] != parent[travel[0] -1]:
         answer = "NO"
         break
